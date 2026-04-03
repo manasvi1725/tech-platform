@@ -17,7 +17,7 @@ export function BackButton() {
       }}
       className="text-sm text-muted-foreground hover:text-foreground transition"
     >
-      ← Back
+      ←
     </button>
   );
 }

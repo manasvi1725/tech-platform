@@ -284,7 +284,7 @@ function DashboardContent() {
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center gap-2 text-primary">
               <ChevronLeft className="w-5 h-5" />
-              <span className="text-sm font-medium">Back</span>
+              {/* <span className="text-sm font-medium">Back</span> */}
             </Link>
             <h1 className="text-2xl font-bold">TechIntel</h1>
           </div>
