@@ -299,18 +299,23 @@ function DashboardContent() {
       <div className="mx-auto max-w-7xl px-4 py-8 space-y-6">
         <DashboardHeader techName={techName.replace(/_/g, " ")} />
         <p>{filteredData.overview?.text}</p>
-        <KeyInsightsCards insights={filteredData.insights} />
+        <KeyInsightsCards insights={filteredData?.insights ?? {
+            trl: 0,
+            growth_stage: "Unknown",
+            market_size_billion_usd: null,
+            signals: 0,
+          }} />
 
         {/* MAIN CONTENT */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* LEFT: ALL CHARTS */}
           <div className="lg:col-span-2">
-            <VisualizationArea
-              trendCurve={filteredData.trend_curve ?? []}
-              countryInvestment={filteredData.country_investment?.values ?? {}}
-              patentTimeline={filteredData.patent_timeline ?? []}
-              patentsCountry={filteredData.patents_country ?? []}
-              marketReports={filteredData.entities?.market_reports ?? []}
+           <VisualizationArea
+              trendCurve={filteredData?.trend_curve ?? []}
+              countryInvestment={filteredData?.country_investment?.values ?? {}}
+              patentTimeline={filteredData?.patent_timeline ?? []}
+              patentsCountry={filteredData?.patents_country ?? []}
+              marketReports={filteredData?.entities?.market_reports ?? []}
             />
 
             {/* Knowledge Graph */}
