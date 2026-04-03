@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useRouter } from "next/navigation"
 import { Card, CardContent } from "@/components/ui/card"
 import { TrendingUp, TrendingDown, FileText, ArrowRight } from "lucide-react"
@@ -44,7 +43,12 @@ const FLASHCARDS: Record<CardType, FlashcardData> = {
   },
 }
 
-export function ContentFlashcards() {
+type ContentFlashcardsProps = {
+  trends: any
+  summary: any
+}
+
+export function ContentFlashcards({ trends, summary }: ContentFlashcardsProps) {
   const router = useRouter()
 
   const handleCardClick = (type: CardType) => {
@@ -53,32 +57,35 @@ export function ContentFlashcards() {
 
   return (
     <div className="w-full">
-      {/* Section Title */}
-      <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Explore Technology Intelligence</h2>
+      <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
+        Explore Technology Intelligence
+      </h2>
 
-      {/* Flashcard Grid - Centered with 3 columns that stack on mobile */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center">
         {(["trends", "investments", "patents"] as CardType[]).map((type) => {
           const card = FLASHCARDS[type]
           return (
-            <button key={type} onClick={() => handleCardClick(type)} className="text-left transition-all duration-300">
+            <button
+              key={type}
+              onClick={() => handleCardClick(type)}
+              className="text-left transition-all duration-300"
+            >
               <Card
                 className={`h-full border-2 cursor-pointer transition-all duration-300 ${card.color} ${card.hoverColor}`}
               >
                 <CardContent className="p-6 h-full flex flex-col justify-between">
-                  {/* Icon and Count */}
                   <div className="flex items-start justify-between mb-4">
                     <div className="text-primary opacity-70">{card.icon}</div>
                     <div className="text-3xl font-bold text-primary/80">{card.count}</div>
                   </div>
 
-                  {/* Title and Description */}
                   <div className="flex-1 mb-4">
-                    <h3 className="text-lg font-semibold text-black dark:text-white mb-2">{card.title}</h3>
+                    <h3 className="text-lg font-semibold text-black dark:text-white mb-2">
+                      {card.title}
+                    </h3>
                     <p className="text-sm text-muted-foreground">{card.description}</p>
                   </div>
 
-                  {/* Arrow Indicator */}
                   <div className="flex items-center text-primary font-medium text-sm">
                     Explore <ArrowRight className="w-4 h-4 ml-2" />
                   </div>
