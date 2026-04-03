@@ -1,0 +1,13 @@
+pandas
+numpy
+requests
+networkx
+matplotlib
+pyvis
+google-search-results
+google-genai
+# npm install framer-motion
+pymupdf
+uvicorn
+fastapi
+dotenv
