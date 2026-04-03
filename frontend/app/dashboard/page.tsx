@@ -299,12 +299,7 @@ function DashboardContent() {
       <div className="mx-auto max-w-7xl px-4 py-8 space-y-6">
         <DashboardHeader techName={techName.replace(/_/g, " ")} />
         <p>{filteredData.overview?.text}</p>
-        <KeyInsightsCards insights={filteredData?.insights ?? {
-            trl: 0,
-            growth_stage: "Unknown",
-            market_size_billion_usd: null,
-            signals: 0,
-          }} />
+        <KeyInsightsCards insights={filteredData?.summary} />
 
         {/* MAIN CONTENT */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
